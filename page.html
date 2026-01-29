@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post & Comment Manager</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px;
+            background: #f5f7fb;
+            color: #1f2933;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 28px;
+        }
+
+        h2, h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+
+        thead {
+            background: #eef2ff;
+        }
+
+        th, td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .form-row input[type="text"] {
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            min-width: 0;
+        }
+
+        .form-row input[type="submit"] {
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: 0;
+            background: #4f46e5;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .form-row input[type="submit"]:hover {
+            background: #4338ca;
+        }
+
+        .table-action-button {
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 0;
+            background: #ef4444;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .table-action-button:hover {
+            background: #dc2626;
+        }
+    </style>
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Post & Comment Manager</h1>
+
+        <div class="card">
+            <h2>Posts</h2>
+            <table id="post-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Views</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="post-body">
+                </tbody>
+            </table>
+            <div class="form-row">
+                <input type="text" id="id_txt" placeholder="ID (de trong de tu tang)">
+                <input type="text" id="title_txt" placeholder="Title">
+                <input type="text" id="views_txt" placeholder="Views">
+                <input type="submit" value="Save post" onclick="saveData()">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Comments</h2>
+            <table id="comment-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Text</th>
+                        <th>Post ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="comment-body">
+                </tbody>
+            </table>
+            <div class="form-row">
+                <input type="text" id="cmt_id_txt" placeholder="ID (de trong de tu tang)">
+                <input type="text" id="cmt_text_txt" placeholder="Comment text">
+                <input type="text" id="cmt_postId_txt" placeholder="Post ID">
+                <input type="submit" value="Save comment" onclick="saveComment()">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
